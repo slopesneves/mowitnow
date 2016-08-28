@@ -27,4 +27,8 @@ public class Tondeuse {
     public void forward () {
         this.position = this.toward.move(this.position);
     }
+
+    public String toString () {
+        return this.position + " " + this.toward;
+    }
 }

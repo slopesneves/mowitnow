@@ -22,4 +22,8 @@ public class North extends CardinalPoint {
         Integer y = coordinate.getY() + 1;
         return new Coordinate(x, y);
     }
+
+    public String toString () {
+        return "N";
+    }
 }

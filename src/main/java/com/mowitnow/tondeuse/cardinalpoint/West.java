@@ -22,4 +22,8 @@ public class West extends CardinalPoint {
         Integer y = coordinate.getY();
         return new Coordinate(x, y);
     }
+
+    public String toString () {
+        return "W";
+    }
 }
