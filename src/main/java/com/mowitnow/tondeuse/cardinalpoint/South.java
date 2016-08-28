@@ -1,5 +1,7 @@
 package com.mowitnow.tondeuse.cardinalpoint;
 
+import com.mowitnow.tondeuse.Coordinate;
+
 public class South extends CardinalPoint {
     private static South instance = new South();
 
@@ -13,5 +15,11 @@ public class South extends CardinalPoint {
 
     public CardinalPoint right() {
         return West.getInstance();
+    }
+
+    public Coordinate move(Coordinate coordinate) {
+        Integer x = coordinate.getX();
+        Integer y = coordinate.getY() - 1;
+        return new Coordinate(x, y);
     }
 }
