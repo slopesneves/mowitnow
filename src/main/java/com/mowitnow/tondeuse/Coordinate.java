@@ -1,19 +1,19 @@
 package com.mowitnow.tondeuse;
 
 public class Coordinate {
-    private Short x;
-    private Short y;
+    private Integer x;
+    private Integer y;
 
-    public Coordinate (Short x, Short y) {
+    public Coordinate (Integer x, Integer y) {
         this.x = x;
         this.y = y;
     }
 
-    public Short getX() {
+    public Integer getX() {
         return x;
     }
 
-    public Short getY() {
+    public Integer getY() {
         return y;
     }
 }
