@@ -1,5 +1,7 @@
 package com.mowitnow.tondeuse.direction;
 
-public enum Direction {
-    A, G, D
+import com.mowitnow.tondeuse.Tondeuse;
+
+public abstract class Direction {
+    public abstract void move (Tondeuse tondeuse);
 }
