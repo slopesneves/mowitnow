@@ -5,15 +5,27 @@ import com.mowitnow.tondeuse.direction.DirectionFactory;
 
 public class Tondeuse {
     private CardinalPoint toward;
+
+    Coordinate getPosition() {
+        return position;
+    }
+
     private Coordinate position;
+    private Coordinate previousPosition;
 
     public Tondeuse (BasePosition basePosition) {
         this.toward = basePosition.getCardinalPoint();
+        this.previousPosition = basePosition.getCoordinate();
         this.position = basePosition.getCoordinate();
     }
 
     public void move (Character direction) {
+        previousPosition = position;
         DirectionFactory.INSTANCE.getDirection(direction).move(this);
+    }
+
+    public void rollback () {
+        this.position = previousPosition;
     }
 
     public void left () {
