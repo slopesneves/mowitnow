@@ -7,11 +7,11 @@ public class South extends CardinalPoint {
         return instance;
     }
 
-    CardinalPoint left() {
+    public CardinalPoint left() {
         return East.getInstance();
     }
 
-    CardinalPoint right() {
+    public CardinalPoint right() {
         return West.getInstance();
     }
 }
