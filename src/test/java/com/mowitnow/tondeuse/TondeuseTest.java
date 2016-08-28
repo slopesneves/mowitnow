@@ -1,5 +1,6 @@
 package com.mowitnow.tondeuse;
 
+import com.mowitnow.tondeuse.cardinalpoint.East;
 import com.mowitnow.tondeuse.cardinalpoint.North;
 import org.junit.Test;
 
@@ -28,5 +29,30 @@ public class TondeuseTest {
 
         //Then
         assertThat(tondeuse.toString()).isEqualTo("1 3 N");
+    }
+
+    @Test
+    public void final_position_should_be_5_1_E_when_start_position_3_3_E_and_movement_AADAADADDA () {
+        //Given
+        Tondeuse tondeuse;
+        BasePosition startPosition;
+        Coordinate coordinate = new Coordinate(3, 3);
+        startPosition = new BasePosition(East.getInstance(), coordinate);
+        tondeuse = new Tondeuse(startPosition);
+
+        //When
+        tondeuse.move('A');
+        tondeuse.move('A');
+        tondeuse.move('D');
+        tondeuse.move('A');
+        tondeuse.move('A');
+        tondeuse.move('D');
+        tondeuse.move('A');
+        tondeuse.move('D');
+        tondeuse.move('D');
+        tondeuse.move('A');
+
+        //Then
+        assertThat(tondeuse.toString()).isEqualTo("5 1 E");
     }
 }
