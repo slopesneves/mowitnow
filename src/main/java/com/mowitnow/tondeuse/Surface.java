@@ -36,6 +36,10 @@ public class Surface {
                 && this.maxCorner.isInside(position);
     }
 
+    public String toString () {
+        return maxCorner.toString();
+    }
+
     private static class Corner {
         private Coordinate position;
         private Corner (Coordinate position) {
@@ -66,6 +70,10 @@ public class Surface {
         public boolean isInside (Coordinate position) {
             return position.getX() <= this.getPosition().getX()
                     && position.getY() <= this.getPosition().getY();
+        }
+
+        public String toString () {
+            return getPosition().toString();
         }
     }
 }
