@@ -46,17 +46,28 @@ public class InstructionFileLoader {
     }
 
     private static Surface loadSurface (String surfaceSizeLine) {
-        String[] maxCoordinates = surfaceSizeLine.split(" ");
-        Integer x = Integer.valueOf(maxCoordinates[0]);
-        Integer y = Integer.valueOf(maxCoordinates[1]);
-        Coordinate coordinate = new Coordinate(x, y);
-        return new Surface(coordinate);
+        try {
+            String[] maxCoordinates = surfaceSizeLine.split(" ");
+            Integer x = Integer.valueOf(maxCoordinates[0]);
+            Integer y = Integer.valueOf(maxCoordinates[1]);
+            Coordinate coordinate = new Coordinate(x, y);
+            return new Surface(coordinate);
+        }catch (Exception e) {
+            System.err.println("Failed to load surface from " + surfaceSizeLine);
+            throw e;
+        }
     }
 
     private static Tondeuse loadTondeuse (String baseTondeusePositionLine) {
-        Coordinate coordinate = coordinateFromLine(baseTondeusePositionLine);
-        CardinalPoint cardinalPoint = cardinalPointFromLine(baseTondeusePositionLine);
-        return new Tondeuse(new BasePosition(cardinalPoint, coordinate));
+        try {
+            Coordinate coordinate = coordinateFromLine(baseTondeusePositionLine);
+            CardinalPoint cardinalPoint = cardinalPointFromLine(baseTondeusePositionLine);
+            return new Tondeuse(new BasePosition(cardinalPoint, coordinate));
+        }catch (Exception e) {
+            System.err.println("Failed to load tondeuse from " + baseTondeusePositionLine);
+            throw e;
+        }
+
     }
 
     private static Coordinate coordinateFromLine(String line) {
