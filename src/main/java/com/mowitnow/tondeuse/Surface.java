@@ -1,5 +1,6 @@
 package com.mowitnow.tondeuse;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +12,10 @@ public class Surface {
 
     public Surface (Coordinate maxCorner) {
         this.maxCorner = new MaxCorner(maxCorner);
+    }
+
+    public List<Tondeuse> getTondeuses() {
+        return Collections.unmodifiableList(tondeuses);
     }
 
     public void add (Tondeuse tondeuse) {
