@@ -1,5 +1,6 @@
 package com.mowitnow.tondeuse;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +12,10 @@ public class Surface {
 
     public Surface (Coordinate maxCorner) {
         this.maxCorner = new MaxCorner(maxCorner);
+    }
+
+    public List<Tondeuse> getTondeuses() {
+        return Collections.unmodifiableList(tondeuses);
     }
 
     public void add (Tondeuse tondeuse) {
@@ -29,6 +34,10 @@ public class Surface {
         Coordinate position = tondeuse.getPosition();
         return Surface.MIN_CORNER.isInside(position)
                 && this.maxCorner.isInside(position);
+    }
+
+    public String toString () {
+        return maxCorner.toString();
     }
 
     private static class Corner {
@@ -61,6 +70,10 @@ public class Surface {
         public boolean isInside (Coordinate position) {
             return position.getX() <= this.getPosition().getX()
                     && position.getY() <= this.getPosition().getY();
+        }
+
+        public String toString () {
+            return getPosition().toString();
         }
     }
 }
